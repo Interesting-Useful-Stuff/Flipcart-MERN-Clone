@@ -3,6 +3,9 @@ const env = require('dotenv')
 const app = express()
 const mongoose = require('mongoose')
 
+//routes
+const userRoutes = require('./routes/user')
+
 // environment variable
 env.config() 
 
@@ -19,17 +22,7 @@ mongoose.connect(mongodbConnectionString,
 
 app.use(express.json())
 
-app.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Hello from SERVER'
-  })
-})
-
-app.post('/data', (req, res, next) => {
-  res.status(200).json({
-    message: req.body
-  })
-})
+app.use('/api', userRoutes)
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`)
