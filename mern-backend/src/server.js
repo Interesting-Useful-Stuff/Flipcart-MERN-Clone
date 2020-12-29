@@ -15,7 +15,8 @@ const mongodbConnectionString = `mongodb+srv://${process.env.MONGO_DB_USER}:${pr
 mongoose.connect(mongodbConnectionString,
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   }).then(() => {
     console.log('Database connected ...')
   })
