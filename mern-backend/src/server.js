@@ -8,7 +8,7 @@ const authRoutes = require('./routes/auth')
 const adminRoutes = require('./routes/admin/auth')
 
 // environment variable
-env.config() 
+env.config()
 
 //mongodb connection string
 const mongodbConnectionString = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@flipcart.ks697.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`
