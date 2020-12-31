@@ -31,8 +31,10 @@ const productSchema = mongoose.Schema(
         ],
         reviews: [
             {
-                userId: mongoose.Schema.Types.ObjectId,
-                ref: 'User',
+                userId: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'User'
+                },
                 review: String
             }
         ],
@@ -44,7 +46,10 @@ const productSchema = mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
-        updatedAt: Date
+        updatedAt: {
+            type: Date,
+            default: Date.now
+        }
 
     }, { timestamps: true }
 )
